@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+		map =[
+		[3,0,0,0,0],
+		[0,1,0,1,0],
+		[0,1,0,1,0],
+		[0,1,0,1,0],
+		[0,0,0,1,5]
+		]
+
+		// map[x][y]
+
+
+		function findPath(start,end, dir=null, results=[]){
+
+			if(start[0] == end[0] && start[1] == end[1]){
+				results.push([dir, steps]);
+				return results;
+			}
+
+			startX = start[0];
+			startY = start[1];
+			map[startY][startX] = 1;
+
+			// up y-1
+			if(startY-1 >= 0 && map[startY-1][startX] != 1){
+				// can move in this direction
+				newStart = [startX, startY-1];
+				findPath(newSrat, end "up", results);
+			}
+			// right x+1
+			if(startX+1 <= 9 && map[startY][startX+1] != 1){
+				newStart = [startX+1, startY];
+				findPath(newSrat, end "right", results);
+			}
+
+			// down y+1
+			if(startY+1 <= 9 && map[startY+1][startX] != 1){
+				newStart = [startX, startY+1];
+				findPath(newSrat, end "down", results);
+			}
+
+			// left x-1
+			if(startX-1 >= 0 && map[startY][startX-1] != 1){
+				newStart = [startX-1, startY];
+				findPath(newSrat, end "left", results);
+			}
+			return results;
+
+	}
+
+	console.log(findPath([0,0],[9,9]));
+
+
+
+
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
